@@ -32,7 +32,6 @@ public class LibraryController {
     @GetMapping
     public boolean findBookInDb(@RequestBody FindBookInput input){
 
-        System.out.println("Inside library controller");
         System.out.println(input.getBookId());
         libraryService.findBookInDb(input.getBookId());
 
