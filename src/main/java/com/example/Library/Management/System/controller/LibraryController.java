@@ -1,5 +1,6 @@
 package com.example.Library.Management.System.controller;
 
+import com.example.Library.Management.System.input.FindBookInput;
 import com.example.Library.Management.System.service.LibraryService;
 import com.example.Library.Management.System.input.CreateBookingInput;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,14 @@ public class LibraryController {
         }
     }
     @GetMapping
-    public boolean findBookInDb(@RequestBody  String bookId){
+    public boolean findBookInDb(@RequestBody FindBookInput input){
 
         System.out.println("Inside library controller");
-        String isbnNumber = bookId;
-        System.out.println(isbnNumber);
-        libraryService.findBookInDb(UUID.fromString(bookId));
-        return true;
+        System.out.println(input.getBookId());
+        libraryService.findBookInDb(input.getBookId());
+
+        //libraryService.findBookInDb(bookId);
+       return true;
     }
 
 }

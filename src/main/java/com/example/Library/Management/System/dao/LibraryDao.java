@@ -26,7 +26,7 @@ public class LibraryDao implements Library{
 
     @Override
     public boolean findBookInDb(UUID bookId) {
-        String query = String.format("Select isbnnumber from bookinfo where isbnnumber='%s",bookId);
+        String query = String.format("Select isbnnumber from bookinfo where isbnnumber='%s'",bookId);
         List<Map<String, Object>> isbnNumber = jdbcTemplate.queryForList(query);
         System.out.println(isbnNumber);
         return true;
