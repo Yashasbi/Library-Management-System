@@ -17,7 +17,11 @@ public class StudentController {
     StudentService studentService;
 
     @PostMapping
-    public void issueBookToStudent(@RequestBody IssueBookToStudentInput issueBookToStudentInput) {
-        studentService.issueBookToStudent(issueBookToStudentInput);
+    public String issueBookToStudent(@RequestBody IssueBookToStudentInput issueBookToStudentInput) {
+        if(studentService.issueBookToStudent(issueBookToStudentInput)){
+            return "Book successfully issued to the student";
+        }else{
+            return "The book which you requested is already issued or is not available";
+        }
     }
 }
